@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: panelapp
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 24.20.0
+      - key: API_HOST
+        value: 0.0.0.0
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash-lite
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PANELAPP_DB_URL
+        sync: false
+      - key: PANELAPP_DB_AUTH_TOKEN
+        sync: false

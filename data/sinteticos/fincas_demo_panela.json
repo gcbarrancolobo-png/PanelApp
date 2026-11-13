@@ -1,0 +1,677 @@
+{
+  "metadata": {
+    "descripcion": "Datos SINTÉTICOS para demostración de PanelApp. Todas las fincas, nombres, lotes, compradores y resultados son ficticios y no corresponden a establecimientos reales.",
+    "version": "1.0",
+    "checklist_de_referencia": "checklist_panela.json v2.0",
+    "regla_de_puntaje": "cumple = 1, parcial = 0,5, no_cumple = 0; por nivel de criticidad; 'preparado' si críticos = 100%, mayores >= 80% y menores >= 60% (propuesta de PanelApp)",
+    "uso": "Cargar con el botón 'Modo demostración'. Cada finca trae respuestas de auditoría, bitácoras, resultado y alertas esperadas, para poder probar que el motor de puntaje y de alertas funciona.",
+    "ajustes_fase6": [
+      "T2 obligatorio.mayor 95 -> 94.8: recalculado con el checklist v2.0 (98 requisitos); el motor aplica la regla documentada (cumple=1, parcial=0,5, no_cumple=0).",
+      "T2 BPA_voluntario.preparado true -> false: el motor exige menores >= 60% evaluados; en v2.0 no hay menores BPA con respuesta, por lo que menor=null y preparado=false.",
+      "T3 BPA_voluntario.preparado true -> false: misma regla (menor=null).",
+      "T5 obligatorio.mayor 81.2 -> 81.3: el motor redondea a un decimal (81.25 -> 81.3)."
+    ]
+  },
+  "fincas": [
+    {
+      "id": "T1",
+      "nombre": "Trapiche La Esperanza (ficticio)",
+      "departamento": "Cundinamarca",
+      "perfil": {
+        "tipo_establecimiento": "trapiche",
+        "cultiva_cana": true,
+        "exporta": false,
+        "panela_saborizada": false,
+        "elabora_panela_granulada": false,
+        "vende_a_granel": true,
+        "reenvasa": false,
+        "declara_100_natural": false,
+        "comercializa_panela_de_terceros": false
+      },
+      "descripcion": "Trapiche familiar, en proceso de formalización. Vende a granel a un intermediario.",
+      "bitacora": [
+        {
+          "tipo": "molienda",
+          "fecha": "2026-10-05",
+          "lote": "T1-2026-10-05",
+          "cana_kg": 2400,
+          "panela_kg": 260,
+          "aditivos": [
+            {
+              "nombre": "bicarbonato de sodio",
+              "cantidad_g": 150,
+              "permitido": true
+            },
+            {
+              "nombre": "balso",
+              "cantidad_g": 400,
+              "permitido": true
+            }
+          ],
+          "responsable": "Operario principal"
+        },
+        {
+          "tipo": "limpieza",
+          "fecha": "2026-10-05",
+          "area": "sala de proceso",
+          "producto": "hipoclorito",
+          "responsable": "Operario principal"
+        },
+        {
+          "tipo": "molienda",
+          "fecha": "2026-10-12",
+          "lote": "T1-2026-10-12",
+          "cana_kg": 2600,
+          "panela_kg": 285,
+          "aditivos": [
+            {
+              "nombre": "ácido cítrico",
+              "cantidad_g": 120,
+              "permitido": true
+            },
+            {
+              "nombre": "aceite vegetal grado alimenticio",
+              "cantidad_g": 80,
+              "permitido": true
+            }
+          ],
+          "responsable": "Operario principal"
+        },
+        {
+          "tipo": "despacho",
+          "fecha": "2026-10-14",
+          "lote": "T1-2026-10-05",
+          "comprador": "Intermediario local",
+          "cantidad_kg": 240
+        }
+      ],
+      "respuestas_auditoria": {
+        "AUT-01": "no_cumple",
+        "AUT-02": "no_cumple",
+        "INF-01": "cumple",
+        "INF-02": "cumple",
+        "INF-03": "no_cumple",
+        "INF-04": "cumple",
+        "INF-05": "cumple",
+        "INF-06": "cumple",
+        "SNT-01": "cumple",
+        "SNT-02": "no_cumple",
+        "PER-01": "cumple",
+        "PER-02": "cumple",
+        "PER-03": "cumple",
+        "PER-04": "no_cumple",
+        "PER-05": "no_cumple",
+        "SAN-01": "cumple",
+        "SAN-02": "parcial",
+        "SAN-03": "cumple",
+        "SAN-04": "cumple",
+        "SAN-05": "no_cumple",
+        "SAN-06": "cumple",
+        "SAN-07": "no_cumple",
+        "EQU-01": "cumple",
+        "EQU-02": "cumple",
+        "SAL-01": "cumple",
+        "SAL-02": "cumple",
+        "SAL-03": "cumple",
+        "SAL-04": "cumple",
+        "SOC-01": "cumple",
+        "SOC-02": "cumple",
+        "SOC-03": "cumple",
+        "INS-01": "cumple",
+        "INS-02": "cumple",
+        "INS-03": "cumple",
+        "INS-04": "cumple",
+        "INS-05": "cumple",
+        "CAL-01": "cumple",
+        "CAL-02": "cumple",
+        "CAL-04": "cumple",
+        "ENV-01": "parcial",
+        "ENV-02": "no_cumple",
+        "ENV-03": "cumple",
+        "ROT-01": "parcial",
+        "ROT-02": "no_cumple",
+        "ROT-04": "cumple",
+        "ALM-01": "parcial",
+        "ALM-02": "cumple",
+        "ALM-03": "cumple",
+        "TRZ-01": "parcial",
+        "CAN-01": "no_cumple",
+        "CAN-02": "no_cumple",
+        "CAN-03": "cumple",
+        "CAN-04": "cumple",
+        "CAN-05": "parcial",
+        "CAN-06": "parcial",
+        "CAN-07": "no_cumple",
+        "CAN-08": "cumple",
+        "CAN-09": "cumple",
+        "CAN-10": "cumple"
+      },
+      "incumple_infraestructura": true,
+      "resultado_esperado": {
+        "obligatorio": {
+          "critica": 81.8,
+          "mayor": 63.8,
+          "menor": 100,
+          "preparado": false
+        },
+        "BPA_voluntario": {
+          "critica": 37.5,
+          "mayor": 75,
+          "menor": null,
+          "preparado": false
+        }
+      },
+      "alertas_esperadas": []
+    },
+    {
+      "id": "T2",
+      "nombre": "Trapiche El Mirador (ficticio)",
+      "departamento": "Santander",
+      "perfil": {
+        "tipo_establecimiento": "trapiche",
+        "cultiva_cana": true,
+        "exporta": false,
+        "panela_saborizada": false,
+        "elabora_panela_granulada": true,
+        "vende_a_granel": false,
+        "reenvasa": false,
+        "declara_100_natural": true,
+        "comercializa_panela_de_terceros": false
+      },
+      "descripcion": "Trapiche que produce panela granulada envasada y vende a tiendas regionales.",
+      "bitacora": [
+        {
+          "tipo": "molienda",
+          "fecha": "2026-10-03",
+          "lote": "T2-2026-10-03",
+          "cana_kg": 3100,
+          "panela_kg": 330,
+          "aditivos": [
+            {
+              "nombre": "carbonato de calcio",
+              "cantidad_g": 200,
+              "permitido": true
+            },
+            {
+              "nombre": "cadillo",
+              "cantidad_g": 500,
+              "permitido": true
+            }
+          ],
+          "responsable": "Operario principal"
+        },
+        {
+          "tipo": "analisis_laboratorio",
+          "fecha": "2026-10-08",
+          "lote": "T2-2026-10-03",
+          "humedad_pct": 4.6,
+          "cenizas_pct": 1.2,
+          "so2": "negativo",
+          "colorantes": "negativo",
+          "plomo_mgkg": 0.05,
+          "arsenico_mgkg": 0.02
+        },
+        {
+          "tipo": "capacitacion",
+          "fecha": "2026-09-20",
+          "tema": "Manipulación higiénica de alimentos",
+          "asistentes": 6
+        },
+        {
+          "tipo": "molienda",
+          "fecha": "2026-10-17",
+          "lote": "T2-2026-10-17",
+          "cana_kg": 3000,
+          "panela_kg": 320,
+          "aditivos": [
+            {
+              "nombre": "ácido cítrico",
+              "cantidad_g": 110,
+              "permitido": true
+            },
+            {
+              "nombre": "guásimo",
+              "cantidad_g": 450,
+              "permitido": true
+            }
+          ],
+          "responsable": "Operario principal"
+        }
+      ],
+      "respuestas_auditoria": {
+        "AUT-01": "cumple",
+        "AUT-02": "cumple",
+        "INF-01": "cumple",
+        "INF-02": "cumple",
+        "INF-03": "cumple",
+        "INF-04": "cumple",
+        "INF-05": "cumple",
+        "INF-06": "cumple",
+        "SNT-01": "cumple",
+        "SNT-02": "cumple",
+        "PER-01": "cumple",
+        "PER-02": "cumple",
+        "PER-03": "cumple",
+        "PER-04": "cumple",
+        "PER-05": "parcial",
+        "SAN-01": "cumple",
+        "SAN-02": "cumple",
+        "SAN-03": "parcial",
+        "SAN-04": "cumple",
+        "SAN-05": "cumple",
+        "SAN-06": "cumple",
+        "SAN-07": "cumple",
+        "EQU-01": "cumple",
+        "EQU-02": "cumple",
+        "SAL-01": "cumple",
+        "SAL-02": "cumple",
+        "SAL-03": "parcial",
+        "SAL-04": "cumple",
+        "SOC-01": "cumple",
+        "SOC-02": "cumple",
+        "SOC-03": "cumple",
+        "INS-01": "cumple",
+        "INS-02": "cumple",
+        "INS-03": "cumple",
+        "INS-04": "cumple",
+        "INS-05": "cumple",
+        "CAL-01": "cumple",
+        "CAL-03": "cumple",
+        "CAL-04": "cumple",
+        "ENV-01": "cumple",
+        "ENV-03": "cumple",
+        "ROT-01": "cumple",
+        "ROT-02": "cumple",
+        "ROT-04": "cumple",
+        "ROT-05": "no_cumple",
+        "ALM-01": "cumple",
+        "ALM-02": "cumple",
+        "ALM-03": "cumple",
+        "TRZ-01": "cumple",
+        "CAN-01": "cumple",
+        "CAN-02": "cumple",
+        "CAN-03": "parcial",
+        "CAN-04": "cumple",
+        "CAN-05": "cumple",
+        "CAN-06": "cumple",
+        "CAN-07": "cumple",
+        "CAN-08": "cumple",
+        "CAN-09": "cumple",
+        "CAN-10": "parcial"
+      },
+      "incumple_infraestructura": true,
+      "resultado_esperado": {
+        "obligatorio": {
+          "critica": 100,
+          "mayor": 94.8,
+          "menor": 88.9,
+          "preparado": true
+        },
+        "BPA_voluntario": {
+          "critica": 100,
+          "mayor": 83.3,
+          "menor": null,
+          "preparado": false
+        }
+      },
+      "alertas_esperadas": []
+    },
+    {
+      "id": "T3",
+      "nombre": "Agroindustria Panelera Río Claro (ficticio)",
+      "departamento": "Antioquia",
+      "perfil": {
+        "tipo_establecimiento": "trapiche",
+        "cultiva_cana": true,
+        "exporta": true,
+        "panela_saborizada": true,
+        "elabora_panela_granulada": true,
+        "vende_a_granel": false,
+        "reenvasa": false,
+        "declara_100_natural": false,
+        "comercializa_panela_de_terceros": false
+      },
+      "descripcion": "Productor con certificado de BPM en trámite y línea de panela saborizada para exportación.",
+      "bitacora": [
+        {
+          "tipo": "molienda",
+          "fecha": "2026-10-02",
+          "lote": "T3-2026-10-02",
+          "cana_kg": 5200,
+          "panela_kg": 560,
+          "aditivos": [
+            {
+              "nombre": "bicarbonato de sodio",
+              "cantidad_g": 300,
+              "permitido": true
+            },
+            {
+              "nombre": "balso",
+              "cantidad_g": 600,
+              "permitido": true
+            }
+          ],
+          "responsable": "Operario principal"
+        },
+        {
+          "tipo": "analisis_laboratorio",
+          "fecha": "2026-10-06",
+          "lote": "T3-2026-10-02",
+          "humedad_pct": 4.2,
+          "cenizas_pct": 1.1,
+          "so2": "negativo",
+          "colorantes": "negativo",
+          "plomo_mgkg": 0.04,
+          "arsenico_mgkg": 0.02
+        },
+        {
+          "tipo": "despacho",
+          "fecha": "2026-10-20",
+          "lote": "T3-2026-10-02",
+          "comprador": "Comercializadora exportadora (ficticia)",
+          "cantidad_kg": 500
+        }
+      ],
+      "respuestas_auditoria": {
+        "AUT-01": "cumple",
+        "AUT-03": "parcial",
+        "AUT-04": "parcial",
+        "INF-01": "cumple",
+        "INF-02": "cumple",
+        "INF-03": "cumple",
+        "INF-04": "cumple",
+        "INF-05": "cumple",
+        "INF-06": "cumple",
+        "SNT-01": "cumple",
+        "SNT-02": "cumple",
+        "PER-01": "cumple",
+        "PER-02": "cumple",
+        "PER-03": "cumple",
+        "PER-04": "cumple",
+        "PER-05": "cumple",
+        "SAN-01": "cumple",
+        "SAN-02": "cumple",
+        "SAN-03": "cumple",
+        "SAN-04": "cumple",
+        "SAN-05": "cumple",
+        "SAN-06": "cumple",
+        "SAN-07": "cumple",
+        "EQU-01": "cumple",
+        "EQU-02": "cumple",
+        "SAL-01": "cumple",
+        "SAL-02": "cumple",
+        "SAL-03": "cumple",
+        "SAL-04": "cumple",
+        "SOC-01": "cumple",
+        "SOC-02": "cumple",
+        "SOC-03": "cumple",
+        "INS-01": "cumple",
+        "INS-02": "cumple",
+        "INS-03": "cumple",
+        "INS-04": "cumple",
+        "INS-05": "cumple",
+        "CAL-01": "cumple",
+        "CAL-03": "cumple",
+        "CAL-04": "cumple",
+        "ENV-01": "cumple",
+        "ENV-03": "cumple",
+        "ROT-01": "cumple",
+        "ROT-02": "cumple",
+        "ROT-03": "parcial",
+        "ROT-04": "cumple",
+        "ALM-01": "cumple",
+        "ALM-02": "cumple",
+        "ALM-03": "cumple",
+        "TRZ-01": "parcial",
+        "CAN-01": "cumple",
+        "CAN-02": "cumple",
+        "CAN-03": "cumple",
+        "CAN-04": "cumple",
+        "CAN-05": "cumple",
+        "CAN-06": "cumple",
+        "CAN-07": "cumple",
+        "CAN-08": "cumple",
+        "CAN-09": "cumple",
+        "CAN-10": "cumple"
+      },
+      "incumple_infraestructura": false,
+      "resultado_esperado": {
+        "obligatorio": {
+          "critica": 91.7,
+          "mayor": 96.6,
+          "menor": 100,
+          "preparado": false
+        },
+        "BPA_voluntario": {
+          "critica": 100,
+          "mayor": 100,
+          "menor": null,
+          "preparado": false
+        }
+      },
+      "alertas_esperadas": []
+    },
+    {
+      "id": "T4",
+      "nombre": "Trapiche Los Naranjos (ficticio)",
+      "departamento": "Boyacá",
+      "perfil": {
+        "tipo_establecimiento": "trapiche",
+        "cultiva_cana": false,
+        "exporta": false,
+        "panela_saborizada": false,
+        "elabora_panela_granulada": false,
+        "vende_a_granel": true,
+        "reenvasa": false,
+        "declara_100_natural": false,
+        "comercializa_panela_de_terceros": false
+      },
+      "descripcion": "Trapiche con prácticas de riesgo: usa blanqueador para mejorar el color y compra caña a terceros.",
+      "bitacora": [
+        {
+          "tipo": "molienda",
+          "fecha": "2026-10-04",
+          "lote": "T4-2026-10-04",
+          "cana_kg": 1800,
+          "panela_kg": 200,
+          "aditivos": [
+            {
+              "nombre": "hidrosulfito de sodio",
+              "cantidad_g": 250,
+              "permitido": false
+            },
+            {
+              "nombre": "bicarbonato de sodio",
+              "cantidad_g": 100,
+              "permitido": true
+            }
+          ],
+          "responsable": "Operario principal"
+        },
+        {
+          "tipo": "analisis_laboratorio",
+          "fecha": "2026-10-10",
+          "lote": "T4-2026-10-04",
+          "humedad_pct": 10.4,
+          "cenizas_pct": 0.7,
+          "so2": "positivo",
+          "colorantes": "negativo",
+          "plomo_mgkg": 0.08,
+          "arsenico_mgkg": 0.03
+        },
+        {
+          "tipo": "despacho",
+          "fecha": "2026-10-13",
+          "lote": "T4-2026-10-04",
+          "comprador": "Plaza de mercado (ficticia)",
+          "cantidad_kg": 190
+        }
+      ],
+      "respuestas_auditoria": {
+        "AUT-01": "no_cumple",
+        "AUT-02": "no_cumple",
+        "INF-01": "parcial",
+        "INF-02": "no_cumple",
+        "INF-03": "cumple",
+        "INF-04": "no_cumple",
+        "INF-05": "cumple",
+        "INF-06": "no_cumple",
+        "SNT-01": "no_cumple",
+        "SNT-02": "no_cumple",
+        "PER-01": "cumple",
+        "PER-02": "parcial",
+        "PER-03": "no_cumple",
+        "PER-04": "no_cumple",
+        "PER-05": "no_cumple",
+        "SAN-01": "no_cumple",
+        "SAN-02": "no_cumple",
+        "SAN-03": "cumple",
+        "SAN-04": "cumple",
+        "SAN-05": "no_cumple",
+        "SAN-06": "cumple",
+        "SAN-07": "no_cumple",
+        "EQU-01": "parcial",
+        "EQU-02": "cumple",
+        "SAL-01": "parcial",
+        "SAL-02": "cumple",
+        "SAL-03": "cumple",
+        "SAL-04": "cumple",
+        "SOC-01": "no_cumple",
+        "SOC-02": "no_cumple",
+        "SOC-03": "no_cumple",
+        "INS-01": "no_cumple",
+        "INS-02": "no_cumple",
+        "INS-03": "parcial",
+        "INS-04": "cumple",
+        "INS-05": "cumple",
+        "CAL-01": "parcial",
+        "CAL-02": "no_cumple",
+        "CAL-04": "no_cumple",
+        "ENV-01": "cumple",
+        "ENV-02": "no_cumple",
+        "ENV-03": "cumple",
+        "ROT-01": "no_cumple",
+        "ROT-02": "no_cumple",
+        "ROT-04": "cumple",
+        "ALM-01": "no_cumple",
+        "ALM-02": "parcial",
+        "ALM-03": "cumple",
+        "TRZ-01": "cumple"
+      },
+      "incumple_infraestructura": true,
+      "resultado_esperado": {
+        "obligatorio": {
+          "critica": 18.2,
+          "mayor": 43.1,
+          "menor": 66.7,
+          "preparado": false
+        }
+      },
+      "alertas_esperadas": [
+        {
+          "fecha": "2026-10-04",
+          "requisito": "INS-02",
+          "tipo": "insumo_prohibido_o_no_autorizado",
+          "detalle": "Se registró \"hidrosulfito de sodio\" en el lote T4-2026-10-04"
+        },
+        {
+          "fecha": "2026-10-10",
+          "requisito": "CAL-02",
+          "tipo": "calidad_fuera_de_limite",
+          "detalle": "Humedad 10.4% supera el máximo de 9.0%"
+        },
+        {
+          "fecha": "2026-10-10",
+          "requisito": "CAL-04",
+          "tipo": "calidad_fuera_de_limite",
+          "detalle": "SO2 positivo: posible uso de blanqueador"
+        }
+      ]
+    },
+    {
+      "id": "T5",
+      "nombre": "Central de acopio Mieles del Valle (ficticia)",
+      "departamento": "Caldas",
+      "perfil": {
+        "tipo_establecimiento": "central_acopio",
+        "cultiva_cana": false,
+        "exporta": false,
+        "panela_saborizada": false,
+        "elabora_panela_granulada": false,
+        "vende_a_granel": false,
+        "reenvasa": true,
+        "declara_100_natural": false,
+        "comercializa_panela_de_terceros": true
+      },
+      "descripcion": "Central que recibe mieles de trapiches autorizados y elabora panela envasada por unidades.",
+      "bitacora": [
+        {
+          "tipo": "recepcion_mieles",
+          "fecha": "2026-10-09",
+          "trapiche_origen": "Trapiche autorizado (ficticio)",
+          "litros": 900,
+          "vehiculo_autorizado": true
+        },
+        {
+          "tipo": "molienda",
+          "fecha": "2026-10-10",
+          "lote": "T5-2026-10-10",
+          "cana_kg": 0,
+          "panela_kg": 780,
+          "aditivos": [
+            {
+              "nombre": "ácido cítrico",
+              "cantidad_g": 90,
+              "permitido": true
+            },
+            {
+              "nombre": "aceite vegetal grado alimenticio",
+              "cantidad_g": 60,
+              "permitido": true
+            }
+          ],
+          "responsable": "Operario principal"
+        },
+        {
+          "tipo": "despacho",
+          "fecha": "2026-10-18",
+          "lote": "T5-2026-10-10",
+          "comprador": "Distribuidor regional (ficticio)",
+          "cantidad_kg": 700
+        }
+      ],
+      "respuestas_auditoria": {
+        "AUT-01": "cumple",
+        "AUT-05": "cumple",
+        "AUT-06": "parcial",
+        "INS-01": "cumple",
+        "INS-02": "cumple",
+        "INS-03": "cumple",
+        "INS-04": "cumple",
+        "INS-05": "cumple",
+        "CAL-01": "cumple",
+        "CAL-02": "cumple",
+        "CAL-04": "cumple",
+        "ENV-01": "cumple",
+        "ENV-03": "cumple",
+        "ENV-04": "parcial",
+        "ROT-01": "cumple",
+        "ROT-02": "cumple",
+        "ROT-04": "cumple",
+        "ROT-06": "parcial",
+        "ALM-03": "parcial",
+        "TRZ-01": "cumple"
+      },
+      "incumple_infraestructura": false,
+      "resultado_esperado": {
+        "obligatorio": {
+          "critica": 95,
+          "mayor": 81.3,
+          "menor": 100,
+          "preparado": false
+        }
+      },
+      "alertas_esperadas": []
+    }
+  ]
+}

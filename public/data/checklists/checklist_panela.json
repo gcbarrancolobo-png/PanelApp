@@ -1,0 +1,2091 @@
+{
+  "metadata": {
+    "nombre": "Lista de verificación - Sector panelero (trapiche, central de acopio y cultivo de caña)",
+    "version": "2.0",
+    "cadena_productiva": "Panela - producción de caña y elaboración de panela en trapiches paneleros y centrales de acopio de mieles vírgenes",
+    "normas_base": [
+      {
+        "norma": "Resolución 779 de 2006, texto vigente con las modificaciones de las Resoluciones 3462 de 2008, 3544 de 2009, 4121 de 2011 y 4217 de 2013",
+        "caracter": "reglamento técnico específico de panela",
+        "url": "https://normograma.invima.gov.co/compilacion/docs/resolucion_minproteccion_0779_2006.htm"
+      },
+      {
+        "norma": "Resolución 2674 de 2013",
+        "caracter": "requisitos generales BPM aplicables a fabricación, procesamiento, envase, almacenamiento, transporte y comercialización de alimentos",
+        "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+      },
+      {
+        "norma": "Resolución 719 de 2015",
+        "caracter": "clasifica panela como alimento de bajo riesgo en salud pública; se usa para interpretar el artículo 24 de la Resolución 2674",
+        "url": "https://normograma.invima.gov.co/compilacion/docs/resolucion_minsaludps_0719_2015.htm"
+      },
+      {
+        "norma": "Decreto 1076 de 2015, texto integrado con modificaciones consultado al 02/11/2025; Resolución 631 de 2015; Resolución 909 de 2008; Resolución 2184 de 2019",
+        "caracter": "referencias ambientales condicionales; aplican según actividad, receptor, equipo y permisos de la autoridad competente",
+        "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153"
+      },
+      {
+        "norma": "Resolución ICA 30021 de 2017, texto vigente modificado por Resolución ICA 82394 de 2020",
+        "caracter": "BPA voluntaria en producción primaria de caña; la norma de 2020 modifica artículos y anexos del texto de 2017",
+        "url": "https://www.ica.gov.co/normatividad/normas-ica/resoluciones-oficinas-nacionales/2020/2020r82394"
+      }
+    ],
+    "campo_caracter": "'obligatorio': exigencia sanitaria; 'obligatorio_en_parte': exigible solo cuando la condición indicada se cumple; 'voluntario_certificacion_BPA': módulo voluntario de certificación.",
+    "campo_origen_del_requisito": "Identifica si el requisito proviene de una norma y los artículos que lo sustentan.",
+    "campo_condicion_de_aplicabilidad": "Indica cuándo aplica el requisito (por ejemplo, solo central de acopio, solo exportación). Si es null, aplica siempre. La app debe excluir del puntaje lo que no aplique.",
+    "plazos_ya_vencidos": "El parágrafo del Art. 9 (mod. por Res. 3462/2008) dio cinco años desde 2006 para exigir parte de los requisitos de infraestructura (num. 1 lit. c y e, num. 2 lit. a y b, num. 8 lit. b y num. 9). También el envasado y rotulado por unidades (Res. 3544/2009 y 4217/2013). Todos están hoy exigibles.",
+    "flexibilidad_infraestructura": "Según el Art. 19 (mod. por Res. 4121/2011), un trapiche que no cumpla los requisitos de infraestructura, equipos y utensilios puede seguir funcionando si presenta un plan de cumplimiento aprobado por el Invima y garantiza la calidad del producto.",
+    "puntaje_propuesto": {
+      "advertencia": "El artículo 20 de la Resolución 779 de 2006 no fija porcentajes de aprobación. El puntaje y los umbrales de PanelApp son solo una simulación orientativa; el concepto oficial corresponde a la autoridad sanitaria en el acta de visita.",
+      "regla": "Puntaje orientativo por nivel de criticidad y módulo; no representa el concepto sanitario oficial."
+    },
+    "alcance_y_limites": [
+      "La Resolución 779/2006, artículo 20, dispone el levantamiento del acta y la emisión del concepto sanitario favorable o desfavorable; ese artículo no incorpora una tabla de porcentajes.",
+      "El código de formulario Invima IVC-INS-FM079 corresponde al acta de visita para trapiches paneleros. No se halló en la consulta pública una versión vigente completa y verificable de ese formato con todos sus pesos y cortes; PanelApp no atribuye al Invima umbrales numéricos que no pudo confirmar.",
+      "La Resolución 2674/2013 se usa como módulo complementario de BPM. No se aplican a panela reglas especiales de otros sectores ni requisitos de Registro, Permiso o Notificación sanitaria que la Ley 2005/2019 exceptúa para panela cuando no estén exigidos en su regulación específica.",
+      "Las verificaciones ambientales dependen de la fuente de captación, el tipo de descarga, el sistema de combustión, el combustible, la escala y las condiciones establecidas por la autoridad ambiental regional. La Resolución 631/2015 contiene tablas diferenciadas; PanelApp no presume una categoría de vertimiento ni inventa límites para cada trapiche.",
+      "La Resolución 909/2008 contiene estándares para equipos de combustión externa con biomasa; la aplicabilidad a una hornilla concreta debe verificarse según su clasificación y características técnicas.",
+      "La Resolución ICA 82394/2020 modificó anexos del estándar de BPA; la estructura y numeración aplicable debe validarse con el ICA.",
+      "El checklist no reemplaza la interpretación de la autoridad sanitaria o ambiental competente ni la revisión profesional del caso concreto."
+    ],
+    "aviso": "Herramienta de preparación y simulación; no reemplaza la inspección del Invima ni de la entidad territorial de salud, ni la certificación oficial.",
+    "campo_aplica_si": "Versión legible por máquina de condicion_de_aplicabilidad. Un requisito aplica cuando TODAS las condiciones de aplica_si se cumplen contra el perfil del establecimiento. Banderas del perfil: tipo_establecimiento (trapiche | central_acopio), cultiva_cana, exporta, panela_saborizada, elabora_panela_granulada, vende_a_granel, reenvasa, declara_100_natural, comercializa_panela_de_terceros. La clave 'calculado: incumple_infraestructura' se activa cuando la auditoría arroja incumplimientos en los requisitos de infraestructura, equipos y utensilios (categorías INF, SNT, EQU, SAL). También se usan condiciones ambientales del perfil para aplicar solo preguntas pertinentes.",
+    "regla_de_puntaje_de_la_app": "Cumple = 1; parcial = 0,5; no cumple = 0; no aplica se excluye. Los módulos de requisitos sanitarios, ambiental condicional y BPA voluntario se muestran por separado. Los porcentajes son orientativos de PanelApp y no constituyen la calificación oficial del acta.",
+    "acta_invima": {
+      "codigo": "IVC-INS-FM079",
+      "nombre": "Acta de visita de inspección sanitaria a trapiches paneleros",
+      "fuente": "https://normograma.invima.gov.co/compilacion/docs/resolucion_minproteccion_0779_2006.htm",
+      "base_legal": "Resolución 779 de 2006, artículo 19 modificado por Resolución 4121 de 2011 y artículo 20.",
+      "clasificacion": {
+        "resultados": [
+          "Concepto favorable",
+          "Concepto desfavorable"
+        ],
+        "criterios_verificados": [
+          "La visita se prioriza según el riesgo asociado que determine Invima y verifica la normatividad sanitaria vigente (artículo 19).",
+          "Se deja constancia de las condiciones sanitarias y de calidad observadas frente a los requisitos aplicables.",
+          "Se emite concepto favorable o desfavorable; se indican exigencias sanitarias y plazos cuando corresponda (artículo 20).",
+          "El acta se firma por el funcionario y se notifica al representante legal, arrendatario o propietario.",
+          "En trapiches, el incumplimiento de infraestructura, equipos y utensilios del artículo 9 puede permitir funcionamiento sujeto a plan de cumplimiento aprobado por Invima y garantía de calidad del producto (artículo 19)."
+        ],
+        "bloques": [
+          "Instalaciones físicas",
+          "Instalaciones sanitarias",
+          "Personal manipulador",
+          "Condiciones de saneamiento y agua",
+          "Disposición de residuos sólidos",
+          "Control de plagas",
+          "Limpieza y desinfección",
+          "Condiciones del proceso de fabricación",
+          "Sala de proceso (artículo 9)"
+        ],
+        "limite": "El artículo 20 no establece porcentajes. La versión completa vigente del formato IVC-INS-FM079 y sus reglas de cálculo no pudo verificarse en una fuente pública actual. PanelApp organiza requisitos legales relacionados, pero no reproduce ni sustituye el acta oficial ni sus criterios internos de calificación."
+      }
+    },
+    "reglas_alerta": {
+      "aditivos_permitidos": [
+        "bicarbonato de sodio",
+        "ácido fosfórico",
+        "carbonato de calcio",
+        "ácido cítrico",
+        "grasas y aceites vegetales grado alimenticio",
+        "poliacrilamidas",
+        "balso",
+        "guásimo",
+        "cadillo"
+      ],
+      "aditivos_prohibidos": [
+        "hidrosulfito",
+        "blanqueador",
+        "colorante",
+        "azúcar",
+        "jarabe de maíz",
+        "miel de ingenio",
+        "miel de ingenios azucareros",
+        "miel de otro trapiche",
+        "mieles de otros trapiches",
+        "otro endulzante",
+        "grasas saturadas"
+      ],
+      "laboratorio": {
+        "CAL-02": {
+          "presentacion": "bloque",
+          "azucares_reductores_pct": {
+            "min": 5.5
+          },
+          "azucares_no_reductores_pct": {
+            "max": 83
+          },
+          "proteinas_pct": {
+            "min": 0.2
+          },
+          "cenizas_pct": {
+            "min": 0.8
+          },
+          "humedad_pct": {
+            "max": 9.0
+          },
+          "plomo_mgkg": {
+            "max": 0.2
+          },
+          "arsenico_mgkg": {
+            "max": 0.1
+          }
+        },
+        "CAL-03": {
+          "presentacion": "granulada",
+          "azucares_reductores_pct": {
+            "min": 5.74
+          },
+          "azucares_no_reductores_pct": {
+            "max": 90
+          },
+          "proteinas_pct": {
+            "min": 0.2
+          },
+          "cenizas_pct": {
+            "min": 1.0
+          },
+          "humedad_pct": {
+            "max": 5.0
+          },
+          "plomo_mgkg": {
+            "max": 0.2
+          },
+          "arsenico_mgkg": {
+            "max": 0.1
+          }
+        },
+        "CAL-04": {
+          "so2": "negativo",
+          "colorantes": "negativo"
+        }
+      },
+      "periodos_alerta_dias": {
+        "capacitacion": 365,
+        "analisis_agua": 365,
+        "limpieza_tanque": 365,
+        "advertencia": "Plazo orientativo para recordar registros; no se presenta como periodicidad legal general."
+      },
+      "horas_capacitacion_anual_minimas": 10,
+      "fuente_horas_capacitacion": "BPM-10"
+    }
+  },
+  "requisitos": [
+    {
+      "id": "AUT-01",
+      "categoria": "Autorizaciones",
+      "pregunta_al_productor": "¿Su trapiche tiene autorización sanitaria de la entidad territorial de salud para producir panela?",
+      "evidencia_requerida": "Concepto o autorización sanitaria vigente; actas de visita de inspección",
+      "criticidad": "critica",
+      "accion_correctiva": "Solicitar la visita de inspección a la secretaría de salud de su municipio o departamento y pedir el concepto sanitario.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 4 (lit. b) y Art. 14"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "AUT-02",
+      "categoria": "Autorizaciones",
+      "pregunta_al_productor": "Si su trapiche no cumple todos los requisitos de infraestructura, equipos y utensilios, ¿tiene un plan de cumplimiento aprobado por el Invima?",
+      "evidencia_requerida": "Plan de cumplimiento aprobado por el Invima",
+      "criticidad": "mayor",
+      "accion_correctiva": "Elaborar el plan con las mejoras y plazos, y presentarlo al Invima. Se permite operar mientras se cumpla el plan y se garantice la calidad del producto.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 19"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el trapiche no cumple los requisitos de infraestructura, equipos y utensilios del Art. 9",
+      "aplica_si": {
+        "calculado": "incumple_infraestructura"
+      }
+    },
+    {
+      "id": "AUT-03",
+      "categoria": "Autorizaciones",
+      "pregunta_al_productor": "Si exporta panela, ¿su trapiche tiene las Buenas Prácticas de Manufactura (BPM) certificadas por la autoridad sanitaria?",
+      "evidencia_requerida": "Certificado de BPM expedido por la autoridad sanitaria competente",
+      "criticidad": "critica",
+      "accion_correctiva": "Solicitar la certificación de BPM antes de exportar; la panela de exportación debe venir de trapiches o centrales con BPM certificadas.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 15"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si exporta panela",
+      "aplica_si": {
+        "exporta": true
+      }
+    },
+    {
+      "id": "AUT-04",
+      "categoria": "Autorizaciones",
+      "pregunta_al_productor": "Si agrega saborizantes a la panela, ¿tiene registro sanitario?",
+      "evidencia_requerida": "Registro sanitario del Invima",
+      "criticidad": "critica",
+      "accion_correctiva": "Tramitar el registro sanitario ante el Invima antes de comercializar panela saborizada.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 16"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si elabora panela saborizada",
+      "aplica_si": {
+        "panela_saborizada": true
+      }
+    },
+    {
+      "id": "AUT-05",
+      "categoria": "Autorizaciones",
+      "pregunta_al_productor": "¿Su central de acopio está autorizada por la entidad territorial de salud, recibe mieles solo de trapiches autorizados y las transporta en vehículos autorizados?",
+      "evidencia_requerida": "Autorización de la central, listado de trapiches proveedores y autorización de los vehículos",
+      "criticidad": "critica",
+      "accion_correctiva": "Verificar que cada trapiche proveedor y cada vehículo tengan autorización antes de recibir las mieles.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 7 (lit. a, b y c)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo centrales de acopio de mieles vírgenes",
+      "aplica_si": {
+        "tipo_establecimiento": "central_acopio"
+      }
+    },
+    {
+      "id": "AUT-06",
+      "categoria": "Autorizaciones",
+      "pregunta_al_productor": "¿La central de acopio aplica las Buenas Prácticas de Manufactura en fabricación, envase, almacenamiento, transporte y distribución, y garantiza la inocuidad de las mieles?",
+      "evidencia_requerida": "Programa de BPM y registros de control de mieles",
+      "criticidad": "critica",
+      "accion_correctiva": "Implementar las BPM y llevar el control de la procedencia y el estado de las mieles recibidas.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 7 (lit. d) y Art. 10"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo centrales de acopio de mieles vírgenes",
+      "aplica_si": {
+        "tipo_establecimiento": "central_acopio"
+      }
+    },
+    {
+      "id": "INF-01",
+      "categoria": "Instalaciones del trapiche",
+      "pregunta_al_productor": "¿El trapiche está lejos de focos de contaminación y su funcionamiento no pone en riesgo la salud de la comunidad?",
+      "evidencia_requerida": "Fotos del entorno y de la ubicación",
+      "criticidad": "mayor",
+      "accion_correctiva": "Controlar o reubicar las fuentes de contaminación cercanas.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 1 (lit. a y f)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "INF-02",
+      "categoria": "Instalaciones del trapiche",
+      "pregunta_al_productor": "¿Los alrededores están libres de residuos sólidos, aguas residuales, malezas y objetos o materiales en desuso?",
+      "evidencia_requerida": "Fotos de los alrededores",
+      "criticidad": "menor",
+      "accion_correctiva": "Limpiar y mantener despejados los alrededores; manejar las aguas residuales.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 1 (lit. b y g)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "INF-03",
+      "categoria": "Instalaciones del trapiche",
+      "pregunta_al_productor": "¿El trapiche está separado de cualquier vivienda?",
+      "evidencia_requerida": "Fotos y croquis de la ubicación respecto a la vivienda",
+      "criticidad": "mayor",
+      "accion_correctiva": "Separar físicamente el trapiche de las viviendas.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 1 (lit. c)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "INF-04",
+      "categoria": "Instalaciones del trapiche",
+      "pregunta_al_productor": "¿Se evita la presencia de animales y de personas distintas a los operarios en las áreas de producción?",
+      "evidencia_requerida": "Fotos de cercos, puertas o señalización",
+      "criticidad": "mayor",
+      "accion_correctiva": "Cercar y señalizar las áreas de producción y restringir el ingreso.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 1 (lit. d)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "INF-05",
+      "categoria": "Instalaciones del trapiche",
+      "pregunta_al_productor": "¿Las áreas de recepción, producción y almacenamiento están organizadas para evitar la contaminación cruzada, y la planta sigue un flujo secuencial del proceso?",
+      "evidencia_requerida": "Croquis del flujo del proceso y fotos",
+      "criticidad": "mayor",
+      "accion_correctiva": "Reorganizar la distribución para que el proceso avance en una sola dirección, sin cruces entre materias primas, proceso y producto terminado.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 1 (lit. e) y num. 8 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "INF-06",
+      "categoria": "Instalaciones del trapiche",
+      "pregunta_al_productor": "¿Está libre el trapiche y sus alrededores de mieles de ingenio, mieles de otros trapiches, jarabe de maíz, azúcar u otros endulzantes, blanqueadores y colorantes?",
+      "evidencia_requerida": "Inspección visual de bodegas y alrededores",
+      "criticidad": "critica",
+      "accion_correctiva": "Retirar de inmediato cualquier insumo prohibido; su presencia es incumplimiento aunque no se use.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 1 (lit. h)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SNT-01",
+      "categoria": "Servicios sanitarios",
+      "pregunta_al_productor": "¿Tiene servicios sanitarios señalizados, separados de las zonas de proceso, limpios y con agua y elementos de aseo para el personal?",
+      "evidencia_requerida": "Fotos de los servicios sanitarios",
+      "criticidad": "mayor",
+      "accion_correctiva": "Construir o adecuar el baño separado del proceso, con agua, jabón y papel.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 2 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SNT-02",
+      "categoria": "Servicios sanitarios",
+      "pregunta_al_productor": "¿Los servicios sanitarios están conectados a un sistema de disposición de residuos (pozo séptico, alcantarillado u otro)?",
+      "evidencia_requerida": "Descripción o foto del sistema de disposición",
+      "criticidad": "mayor",
+      "accion_correctiva": "Conectar el baño a un sistema adecuado de disposición de aguas residuales.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 2 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "PER-01",
+      "categoria": "Personal manipulador",
+      "pregunta_al_productor": "¿Los operarios usan uniforme limpio y en buen estado?",
+      "evidencia_requerida": "Fotos del personal con uniforme",
+      "criticidad": "menor",
+      "accion_correctiva": "Dotar de uniformes y establecer su lavado frecuente.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 3 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "PER-02",
+      "categoria": "Personal manipulador",
+      "pregunta_al_productor": "¿Los operarios se lavan las manos con agua y jabón y mantienen las uñas cortas, limpias y sin esmalte?",
+      "evidencia_requerida": "Observación de las prácticas e instalación de lavamanos con jabón",
+      "criticidad": "mayor",
+      "accion_correctiva": "Instalar lavamanos con jabón y capacitar en lavado de manos.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 3 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "PER-03",
+      "categoria": "Personal manipulador",
+      "pregunta_al_productor": "¿Se evita usar joyas, comer, fumar o beber en las áreas de proceso?",
+      "evidencia_requerida": "Avisos y observación en el área de proceso",
+      "criticidad": "menor",
+      "accion_correctiva": "Señalizar la prohibición y disponer de un área aparte para comer y descansar.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 3 (lit. c)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "PER-04",
+      "categoria": "Personal manipulador",
+      "pregunta_al_productor": "¿Todas las personas que manipulan la panela tienen capacitación en prácticas higiénicas de manipulación de alimentos?",
+      "evidencia_requerida": "Certificados o listas de asistencia a la capacitación",
+      "criticidad": "mayor",
+      "accion_correctiva": "Programar la capacitación con la secretaría de salud, el SENA u otra entidad y archivar las constancias.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 3 (lit. d)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "PER-05",
+      "categoria": "Personal manipulador",
+      "pregunta_al_productor": "¿Tiene e implementa un plan de capacitación dirigido a los operarios?",
+      "evidencia_requerida": "Plan de capacitación escrito y registros de ejecución",
+      "criticidad": "mayor",
+      "accion_correctiva": "Elaborar el plan anual de capacitación y registrar cada sesión.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 3 (lit. e)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAN-01",
+      "categoria": "Saneamiento",
+      "pregunta_al_productor": "¿El agua que usa en el proceso es potable o fácil de higienizar?",
+      "evidencia_requerida": "Análisis de laboratorio del agua o constancia del tratamiento",
+      "criticidad": "critica",
+      "accion_correctiva": "Analizar el agua y tratarla si no cumple.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 4 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAN-02",
+      "categoria": "Saneamiento",
+      "pregunta_al_productor": "¿Tiene un tanque o depósito con tapa, con capacidad para al menos un día de producción, protegido de contaminación y que se limpia y desinfecta periódicamente?",
+      "evidencia_requerida": "Foto del tanque y registro de limpieza",
+      "criticidad": "mayor",
+      "accion_correctiva": "Instalar tanque con tapa y programar su limpieza y desinfección.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 4 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAN-03",
+      "categoria": "Saneamiento",
+      "pregunta_al_productor": "¿Retira los residuos sólidos con la frecuencia necesaria para evitar malos olores, molestias y contaminación del producto?",
+      "evidencia_requerida": "Fotos y registro de recolección",
+      "criticidad": "menor",
+      "accion_correctiva": "Definir una frecuencia de retiro y cumplirla.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 5 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAN-04",
+      "categoria": "Saneamiento",
+      "pregunta_al_productor": "¿Tiene recipientes para recolectar y almacenar los residuos sólidos?",
+      "evidencia_requerida": "Fotos de los recipientes",
+      "criticidad": "menor",
+      "accion_correctiva": "Instalar recipientes con tapa en las áreas de proceso y alrededores.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 5 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAN-05",
+      "categoria": "Saneamiento",
+      "pregunta_al_productor": "¿Tiene e implementa un programa escrito de control integral de plagas y roedores, orientado por la autoridad sanitaria?",
+      "evidencia_requerida": "Programa escrito y registros de las acciones",
+      "criticidad": "mayor",
+      "accion_correctiva": "Elaborar el programa con la autoridad sanitaria y registrar monitoreos y controles.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 6 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAN-06",
+      "categoria": "Saneamiento",
+      "pregunta_al_productor": "¿Los productos para controlar plagas y roedores están rotulados y guardados fuera del trapiche?",
+      "evidencia_requerida": "Fotos del sitio de almacenamiento fuera del trapiche",
+      "criticidad": "mayor",
+      "accion_correctiva": "Guardar estos productos en un lugar aparte y mantener sus rótulos.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 6 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAN-07",
+      "categoria": "Saneamiento",
+      "pregunta_al_productor": "¿Tiene e implementa un programa de limpieza y desinfección de áreas, equipos y utensilios, con concentraciones, modo de preparación y empleo?",
+      "evidencia_requerida": "Programa escrito y registros de limpieza",
+      "criticidad": "mayor",
+      "accion_correctiva": "Elaborar el programa con ayuda de la autoridad sanitaria y registrar cada limpieza.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 7 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "EQU-01",
+      "categoria": "Equipos y proceso",
+      "pregunta_al_productor": "¿El material, diseño y acabado de los equipos y utensilios permiten limpiarlos, desinfectarlos y mantenerlos fácilmente?",
+      "evidencia_requerida": "Fotos de equipos y utensilios",
+      "criticidad": "mayor",
+      "accion_correctiva": "Reemplazar equipos o utensilios de materiales no sanitarios o difíciles de limpiar.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 8 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "EQU-02",
+      "categoria": "Equipos y proceso",
+      "pregunta_al_productor": "¿Cuenta con equipos, recipientes y utensilios (incluidos los molinos) que garanticen buenas condiciones sanitarias en la elaboración?",
+      "evidencia_requerida": "Inventario y fotos de los equipos",
+      "criticidad": "mayor",
+      "accion_correctiva": "Completar y mantener en buen estado los equipos necesarios.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 8 (lit. c)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAL-01",
+      "categoria": "Sala de proceso",
+      "pregunta_al_productor": "¿Las paredes, pisos y techos de la sala de proceso están limpios y en buen estado?",
+      "evidencia_requerida": "Fotos de la sala de proceso",
+      "criticidad": "mayor",
+      "accion_correctiva": "Reparar y limpiar superficies deterioradas.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 9 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAL-02",
+      "categoria": "Sala de proceso",
+      "pregunta_al_productor": "¿Los pisos de las áreas de moldeo, envase y embalaje son de fácil limpieza y desinfección?",
+      "evidencia_requerida": "Fotos de los pisos",
+      "criticidad": "mayor",
+      "accion_correctiva": "Adecuar los pisos con materiales lavables y no porosos.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 9 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAL-03",
+      "categoria": "Sala de proceso",
+      "pregunta_al_productor": "¿Las áreas tienen iluminación y ventilación adecuadas?",
+      "evidencia_requerida": "Fotos y observación",
+      "criticidad": "menor",
+      "accion_correctiva": "Mejorar la iluminación y la ventilación de las áreas de trabajo.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 9 (lit. c)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SAL-04",
+      "categoria": "Sala de proceso",
+      "pregunta_al_productor": "¿Las materias primas e insumos se almacenan en áreas independientes, marcadas e identificadas?",
+      "evidencia_requerida": "Fotos del almacenamiento",
+      "criticidad": "mayor",
+      "accion_correctiva": "Separar y rotular las áreas de insumos.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 10 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SOC-01",
+      "categoria": "Salud ocupacional",
+      "pregunta_al_productor": "¿Tiene un botiquín con la dotación adecuada?",
+      "evidencia_requerida": "Foto del botiquín y listado de contenido",
+      "criticidad": "menor",
+      "accion_correctiva": "Dotar y revisar periódicamente el botiquín.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 13 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SOC-02",
+      "categoria": "Salud ocupacional",
+      "pregunta_al_productor": "¿El personal tiene la dotación personal que exige la reglamentación de seguridad industrial?",
+      "evidencia_requerida": "Fotos del personal con dotación",
+      "criticidad": "mayor",
+      "accion_correctiva": "Proveer guantes, botas, protección auditiva y demás elementos según las labores.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 13 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "SOC-03",
+      "categoria": "Salud ocupacional",
+      "pregunta_al_productor": "¿Las áreas de riesgo (hornillas, calderas, molino) están claramente identificadas?",
+      "evidencia_requerida": "Fotos de la señalización",
+      "criticidad": "mayor",
+      "accion_correctiva": "Señalizar las áreas de riesgo.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 13 (lit. c)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "INS-01",
+      "categoria": "Insumos y aditivos",
+      "pregunta_al_productor": "¿Usa únicamente aditivos permitidos: reguladores de pH (bicarbonato de sodio, ácido fosfórico, carbonato de calcio, ácido cítrico, grado alimenticio), antiespumantes (grasas y aceites vegetales grado alimenticio) y clarificantes (poliacrilamidas, balso, guásimo, cadillo)?",
+      "evidencia_requerida": "Listado de insumos usados con sus fichas técnicas",
+      "criticidad": "critica",
+      "accion_correctiva": "Retirar cualquier aditivo que no esté en la lista permitida.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 6"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "INS-02",
+      "categoria": "Insumos y aditivos",
+      "pregunta_al_productor": "¿Evita usar hidrosulfito de sodio u otras sustancias blanqueadoras tóxicas, colorantes, sustancias tóxicas y grasas saturadas?",
+      "evidencia_requerida": "Inspección de insumos y resultados de laboratorio negativos para SO2 y colorantes",
+      "criticidad": "critica",
+      "accion_correctiva": "Suspender de inmediato su uso. En 2003 las autoridades encontraron blanqueadores y colorantes en el 64% de las muestras analizadas, razón por la que se expidió el reglamento.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 8 (lit. a y b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "INS-03",
+      "categoria": "Insumos y aditivos",
+      "pregunta_al_productor": "¿Evita mezclar la panela con azúcar, mieles de ingenios azucareros, mieles de otros trapiches, jarabe de maíz u otros endulzantes?",
+      "evidencia_requerida": "Registros de compra y de producción; inspección de bodegas",
+      "criticidad": "critica",
+      "accion_correctiva": "No usar ninguna materia prima distinta al jugo de caña propio (en trapiches). Las mieles de otros trapiches solo se permiten en centrales de acopio autorizadas.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 8 (lit. c)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "INS-04",
+      "categoria": "Insumos y aditivos",
+      "pregunta_al_productor": "¿Evita usar cualquier otra sustancia química que altere las características físico-químicas, el valor nutricional o pueda afectar la salud?",
+      "evidencia_requerida": "Listado de insumos usados",
+      "criticidad": "critica",
+      "accion_correctiva": "Retirar toda sustancia no autorizada del proceso.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 8 (lit. d)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "INS-05",
+      "categoria": "Insumos y aditivos",
+      "pregunta_al_productor": "Si reincorpora panelas con defectos de fabricación a un nuevo proceso, ¿son de su mismo establecimiento y no afectan la inocuidad ni la calidad?",
+      "evidencia_requerida": "Registro de panelas reprocesadas",
+      "criticidad": "menor",
+      "accion_correctiva": "Reprocesar solo panelas propias, sin deterioro ni contaminación. No se permite reincorporar panelas devueltas que incidan en la inocuidad.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 5 (parágrafo) y Art. 8 (lit. c)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "CAL-01",
+      "categoria": "Calidad del producto",
+      "pregunta_al_productor": "¿La panela está libre de hongos, mohos, insectos y roedores?",
+      "evidencia_requerida": "Inspección del producto terminado y del almacenamiento",
+      "criticidad": "critica",
+      "accion_correctiva": "Descartar el producto afectado y corregir el control de plagas y el almacenamiento.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 4 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "CAL-02",
+      "categoria": "Calidad del producto",
+      "pregunta_al_productor": "Panela en bloque o presentación estándar: ¿los análisis cumplen azúcares reductores mínimo 5,5%; azúcares no reductores (sacarosa) máximo 83%; proteínas mínimo 0,2%; cenizas mínimo 0,8%; humedad máxima 9,0%; plomo máximo 0,2 mg/kg y arsénico máximo 0,1 mg/kg?",
+      "evidencia_requerida": "Informe de laboratorio del producto con fecha y lote",
+      "criticidad": "critica",
+      "accion_correctiva": "Analizar muestras en laboratorio y ajustar el proceso (cocción, secado y almacenamiento) cuando algún parámetro no cumpla.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 5 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo panela que no es granulada ni en polvo",
+      "aplica_si": {
+        "elabora_panela_granulada": false
+      }
+    },
+    {
+      "id": "CAL-03",
+      "categoria": "Calidad del producto",
+      "pregunta_al_productor": "Panela granulada o en polvo: ¿los análisis cumplen azúcares reductores mínimo 5,74%; azúcares no reductores máximo 90%; proteínas mínimo 0,2%; cenizas mínimo 1,0%; humedad máxima 5,0%; plomo máximo 0,2 mg/kg y arsénico máximo 0,1 mg/kg?",
+      "evidencia_requerida": "Informe de laboratorio del producto con fecha y lote",
+      "criticidad": "critica",
+      "accion_correctiva": "Analizar muestras en laboratorio y ajustar el proceso cuando algún parámetro no cumpla.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 5 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo panela granulada o en polvo",
+      "aplica_si": {
+        "elabora_panela_granulada": true
+      }
+    },
+    {
+      "id": "CAL-04",
+      "categoria": "Calidad del producto",
+      "pregunta_al_productor": "¿Los análisis de SO2 (dióxido de azufre) y de colorantes dan resultado negativo?",
+      "evidencia_requerida": "Informe de laboratorio con resultados negativos",
+      "criticidad": "critica",
+      "accion_correctiva": "Identificar el origen de la contaminación y eliminarlo. Un resultado positivo indica uso de blanqueadores o colorantes prohibidos.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 5 (lit. a y b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "ENV-01",
+      "categoria": "Envase y embalaje",
+      "pregunta_al_productor": "¿Envasa la panela individualmente o por unidades en material sanitario?",
+      "evidencia_requerida": "Fotos del envase y ficha del material",
+      "criticidad": "mayor",
+      "accion_correctiva": "Usar envases de material sanitario y envasar por unidades.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 11 y parágrafo (mod. por Res. 4217/2013)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "ENV-02",
+      "categoria": "Envase y embalaje",
+      "pregunta_al_productor": "Si vende panela a granel, ¿la embala en material sanitario de primer uso, sin usar rusque, costales ni material no sanitario?",
+      "evidencia_requerida": "Fotos del embalaje",
+      "criticidad": "critica",
+      "accion_correctiva": "Reemplazar costales y rusque por material sanitario de primer uso.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 12 (lit. a y parágrafo)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si vende panela embalada a granel",
+      "aplica_si": {
+        "vende_a_granel": true
+      }
+    },
+    {
+      "id": "ENV-03",
+      "categoria": "Envase y embalaje",
+      "pregunta_al_productor": "¿El embalaje se conserva en buenas condiciones durante toda la cadena de comercialización?",
+      "evidencia_requerida": "Observación del embalaje en despachos",
+      "criticidad": "menor",
+      "accion_correctiva": "Revisar el estado del embalaje antes de cada despacho.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 12 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "ENV-04",
+      "categoria": "Envase y embalaje",
+      "pregunta_al_productor": "Si reenvasa panela, ¿lo hace en un establecimiento autorizado por la entidad territorial de salud y con panela de trapiches que cumplen el reglamento?",
+      "evidencia_requerida": "Autorización del establecimiento y procedencia de la panela",
+      "criticidad": "mayor",
+      "accion_correctiva": "Reenvasar solo en establecimientos autorizados con panela de trapiches que cumplan el reglamento.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 12 (lit. c)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si reenvasa panela",
+      "aplica_si": {
+        "reenvasa": true
+      }
+    },
+    {
+      "id": "ROT-01",
+      "categoria": "Rotulado",
+      "pregunta_al_productor": "¿El rótulo indica nombre completo del producto e ingredientes, marca comercial (si la tiene), nombre y ubicación del trapiche, número de lote o fecha de producción, condiciones de conservación y contenido neto?",
+      "evidencia_requerida": "Foto del rótulo del envase y del embalaje",
+      "criticidad": "mayor",
+      "accion_correctiva": "Ajustar el rótulo para que incluya todos los datos exigidos.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 13 (lit. a a f)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "ROT-02",
+      "categoria": "Rotulado",
+      "pregunta_al_productor": "¿El rotulado es obligatorio tanto en el embalaje como en el envase individual o por unidades?",
+      "evidencia_requerida": "Fotos del envase individual y del embalaje rotulados",
+      "criticidad": "mayor",
+      "accion_correctiva": "Rotular siempre ambos niveles de empaque.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 13 (parágrafos 3, 4 y 5)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "ROT-03",
+      "categoria": "Rotulado",
+      "pregunta_al_productor": "Si exporta, ¿el rotulado cumple las exigencias del país de compra?",
+      "evidencia_requerida": "Rótulo revisado contra los requisitos del país de destino",
+      "criticidad": "mayor",
+      "accion_correctiva": "Consultar los requisitos de rotulado del país comprador antes de cada exportación.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 13 (lit. g)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si exporta panela",
+      "aplica_si": {
+        "exporta": true
+      }
+    },
+    {
+      "id": "ROT-04",
+      "categoria": "Rotulado",
+      "pregunta_al_productor": "¿El rótulo evita frases o imágenes engañosas y cualquier mención de propiedades medicinales, preventivas o curativas?",
+      "evidencia_requerida": "Revisión del rótulo",
+      "criticidad": "mayor",
+      "accion_correctiva": "Retirar del rótulo toda frase que sugiera efectos medicinales o que pueda inducir a error.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 13 (parágrafo 2)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "ROT-05",
+      "categoria": "Rotulado",
+      "pregunta_al_productor": "Si el rótulo dice que el producto es 100% natural, ¿la panela no contiene aditivos?",
+      "evidencia_requerida": "Rótulo y lista de insumos usados",
+      "criticidad": "mayor",
+      "accion_correctiva": "No declarar 100% natural si usó aditivos.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 13 (parágrafo 6)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si declara 100% natural",
+      "aplica_si": {
+        "declara_100_natural": true
+      }
+    },
+    {
+      "id": "ROT-06",
+      "categoria": "Rotulado",
+      "pregunta_al_productor": "Si la panela que transporta o vende no tiene lote ni fecha de producción, ¿porta la factura de compra con procedencia, trapiche productor y cantidad?",
+      "evidencia_requerida": "Facturas disponibles para las autoridades",
+      "criticidad": "mayor",
+      "accion_correctiva": "Conservar las facturas y presentarlas a la autoridad sanitaria cuando las pida.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 13 (parágrafo 1)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo para quien almacena, transporta, reenvasa, distribuye o comercializa panela de otros",
+      "aplica_si": {
+        "comercializa_panela_de_terceros": true
+      }
+    },
+    {
+      "id": "ALM-01",
+      "categoria": "Almacenamiento y transporte",
+      "pregunta_al_productor": "¿La panela se almacena ordenadamente en pilas o sobre estibas, separadas de paredes y piso?",
+      "evidencia_requerida": "Fotos de la bodega de producto terminado",
+      "criticidad": "mayor",
+      "accion_correctiva": "Colocar estibas y dejar espacio entre las pilas y las paredes.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 12 (lit. a)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "ALM-02",
+      "categoria": "Almacenamiento y transporte",
+      "pregunta_al_productor": "¿El almacenamiento tiene condiciones adecuadas de temperatura, humedad y circulación del aire?",
+      "evidencia_requerida": "Fotos y registro de humedad o temperatura si lo tiene",
+      "criticidad": "mayor",
+      "accion_correctiva": "Ventilar la bodega y controlar la humedad para evitar mohos.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 9, num. 12 (lit. b)"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo trapiches paneleros",
+      "aplica_si": {
+        "tipo_establecimiento": "trapiche"
+      }
+    },
+    {
+      "id": "ALM-03",
+      "categoria": "Almacenamiento y transporte",
+      "pregunta_al_productor": "¿El almacenamiento, la distribución, el transporte y la comercialización cumplen los requisitos técnico-sanitarios y el transporte cuenta con autorización sanitaria?",
+      "evidencia_requerida": "Autorización del vehículo y fotos del transporte",
+      "criticidad": "mayor",
+      "accion_correctiva": "Tramitar la autorización sanitaria del transporte y mantener el vehículo limpio. Estos requisitos se aplican hoy según la Res. 2674/2013, que reemplazó al Decreto 3075/1997 citado por la norma.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 14"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "TRZ-01",
+      "categoria": "Trazabilidad",
+      "pregunta_al_productor": "¿Puede identificar de qué lote o fecha de producción salió cada despacho de panela, y de qué lotes de caña proviene?",
+      "evidencia_requerida": "Registro de producción por lote o fecha, vinculado a las cosechas de caña",
+      "criticidad": "mayor",
+      "accion_correctiva": "Llevar un registro de producción por lote o fecha de molienda y relacionarlo con las cosechas. La norma exige lote o fecha en el rótulo; la relación con el lote de caña es una buena práctica propuesta por PanelApp.",
+      "fuentes": [
+        {
+          "norma": "Res. 779/2006 Minprotección (mod. Res. 3462/2008, 3544/2009, 4121/2011 y 4217/2013)",
+          "articulo": "Art. 13 (lit. d y parágrafo 1)"
+        }
+      ],
+      "caracter": "obligatorio_en_parte",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "CAN-01",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Cuenta con asistencia técnica de un ingeniero agrónomo o agrónomo, con tarjeta profesional vigente?",
+      "evidencia_requerida": "Documento de asistencia técnica y copia de la tarjeta profesional",
+      "criticidad": "critica",
+      "accion_correctiva": "Vincular un asistente técnico (UMATA, gremio, cooperativa o profesional independiente).",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Art. 4, num. 4.3 y Manual num. 7.1 y 8"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "CAN-02",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Tiene un análisis microbiológico del agua usada en el cultivo con menos de un año de antigüedad?",
+      "evidencia_requerida": "Informe de laboratorio con fecha",
+      "criticidad": "critica",
+      "accion_correctiva": "Tomar muestra y enviarla a un laboratorio; el manual pide además análisis fisicoquímico según el uso, mínimo una vez al año.",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Art. 4, num. 4.6 y Manual num. 4.2"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "CAN-03",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Fertiliza con base en un plan elaborado con análisis de suelo y supervisado por su asistente técnico?",
+      "evidencia_requerida": "Análisis de suelo y plan de fertilización",
+      "criticidad": "mayor",
+      "accion_correctiva": "Hacer el análisis de suelo y pedir al asistente técnico que elabore el plan.",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Manual num. 7.1, 10.2.5 y 11.3"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "CAN-04",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Usa solo plaguicidas, bioinsumos y fertilizantes con registro ICA, comprados en almacenes registrados?",
+      "evidencia_requerida": "Facturas y listado de productos con número de registro ICA",
+      "criticidad": "critica",
+      "accion_correctiva": "Retirar los productos sin registro y consultar alternativas con el asistente técnico.",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Manual num. 7.2 y 8"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "CAN-05",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Registra cada aplicación de fertilizantes y plaguicidas con los datos mínimos (fecha, producto, registro ICA, lote, dosis, método, periodo de carencia, quién recomendó y quién aplicó)?",
+      "evidencia_requerida": "Registro de aplicaciones",
+      "criticidad": "critica",
+      "accion_correctiva": "Llevar el registro con todos los campos; la bitácora de PanelApp puede hacerlo.",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Manual num. 10.1.2"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "CAN-06",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Guarda los insumos agrícolas en una bodega exclusiva, de acceso restringido, ventilada, con piso que retenga derrames y separada de la vivienda y de los alimentos?",
+      "evidencia_requerida": "Fotos de la bodega",
+      "criticidad": "mayor",
+      "accion_correctiva": "Adecuar la bodega según el manual (insumos separados por tipo, líquidos abajo y sólidos arriba).",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Manual num. 1.2"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "CAN-07",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Hace triple lavado a los envases de plaguicidas, los inutiliza sin destruir la etiqueta y los entrega al mecanismo de devolución?",
+      "evidencia_requerida": "Constancia de entrega al programa de devolución",
+      "criticidad": "mayor",
+      "accion_correctiva": "Aplicar el triple lavado y entregar los envases al programa posconsumo.",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Art. 3, num. 3.14 y Manual num. 4.4"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "CAN-08",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Sus trabajadores usan elementos de protección personal y están capacitados en manejo de insumos, higiene, equipos y primeros auxilios?",
+      "evidencia_requerida": "Registro de capacitaciones y fotos de la dotación",
+      "criticidad": "mayor",
+      "accion_correctiva": "Dotar al personal y capacitarlo; archivar las constancias.",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Manual num. 3.1, 3.2 y 10.1.3"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "CAN-09",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Tiene un plan de Manejo Integrado de Plagas basado en la observación, que prioriza métodos culturales, biológicos y físicos antes del control químico?",
+      "evidencia_requerida": "Plan MIP firmado por el asistente técnico y registros de monitoreo",
+      "criticidad": "mayor",
+      "accion_correctiva": "Elaborar el plan con el asistente técnico y registrar los monitoreos.",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Manual num. 8 y 10.2.6"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "CAN-10",
+      "categoria": "Cultivo de caña (BPA)",
+      "pregunta_al_productor": "¿Puede identificar el origen de la caña que muele (unidad de producción, lote, fecha de cosecha y cantidad)?",
+      "evidencia_requerida": "Registro de cosecha por lote",
+      "criticidad": "mayor",
+      "accion_correctiva": "Registrar cada cosecha con los datos mínimos del plan de trazabilidad.",
+      "fuentes": [
+        {
+          "norma": "Res. ICA 30021/2017 (mod. Res. 82394/2020)",
+          "articulo": "Manual num. 9 y 10.1.5"
+        }
+      ],
+      "caracter": "voluntario_certificacion_BPA",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": "Solo si el productor cultiva la caña (cultivo de caña panelera)",
+      "aplica_si": {
+        "cultiva_cana": true
+      }
+    },
+    {
+      "id": "BPM-01",
+      "categoria": "BPM · Edificación",
+      "pregunta_al_productor": "¿El establecimiento está separado de focos que puedan contaminar y sus accesos y alrededores se mantienen limpios y con superficies que reduzcan polvo y aguas estancadas?",
+      "evidencia_requerida": "Recorrido de alrededores, accesos y ubicación.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Retirar focos de contaminación y mantener accesos limpios y drenados.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 6, num. 1",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-02",
+      "categoria": "BPM · Edificación",
+      "pregunta_al_productor": "¿La distribución protege el proceso, permite el flujo desde recepción hasta despacho y separa operaciones que pueden contaminarse entre sí?",
+      "evidencia_requerida": "Plano o recorrido del flujo de caña, proceso, empaque y producto terminado.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Ordenar áreas según la secuencia del proceso y separar físicamente las operaciones incompatibles.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 6, num. 2",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-03",
+      "categoria": "BPM · Edificación",
+      "pregunta_al_productor": "¿Los pisos, drenajes, paredes, techos, ventanas y puertas se pueden limpiar y evitan ingreso de agua, polvo, plagas y acumulación de suciedad?",
+      "evidencia_requerida": "Inspección de superficies, uniones, drenajes, mallas y estado físico.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Reparar superficies y drenajes para que sean lavables y eviten contaminación.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 7, num. 1–5",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-04",
+      "categoria": "BPM · Edificación",
+      "pregunta_al_productor": "¿La iluminación es suficiente y protegida, y la ventilación evita condensación y flujo de aire desde zonas sucias hacia zonas limpias?",
+      "evidencia_requerida": "Luminarias protegidas, ventilación y mallas removibles.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Proteger luminarias, limpiar mallas y corregir el flujo de aire.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 7, num. 7–8",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-05",
+      "categoria": "BPM · Servicios sanitarios",
+      "pregunta_al_productor": "¿Los baños están separados del proceso y hay lavamanos dotados, jabón, secado higiénico y avisos para el lavado de manos?",
+      "evidencia_requerida": "Baños, lavamanos, dotación y avisos cercanos.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Dotar y mantener las instalaciones y los lavamanos como exige el artículo.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 6, num. 6.1–6.4",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-06",
+      "categoria": "BPM · Equipos",
+      "pregunta_al_productor": "¿Los equipos y utensilios son resistentes a corrosión y fáciles de limpiar; las superficies de contacto son lisas, íntegras, no absorbentes y accesibles?",
+      "evidencia_requerida": "Inspección de molinos, pailas, utensilios, mesones y superficies de contacto.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Retirar o reparar superficies dañadas y usar materiales aptos para contacto con alimentos.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Arts. 8 y 9",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-07",
+      "categoria": "BPM · Equipos",
+      "pregunta_al_productor": "¿Los equipos siguen el flujo del proceso, permiten limpieza y mantenimiento, y los puntos críticos tienen instrumentos para medir y registrar variables?",
+      "evidencia_requerida": "Ubicación de equipos e instrumentos de control instalados.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Reubicar o dotar los equipos y controles que sean necesarios para el proceso.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 10, num. 1–4",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-08",
+      "categoria": "BPM · Personal manipulador",
+      "pregunta_al_productor": "¿Cada manipulador cuenta con evaluación médica de aptitud al ingreso y reconocimiento médico al menos anual?",
+      "evidencia_requerida": "Certificados o registros médicos de aptitud, bajo custodia del establecimiento.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Programar los reconocimientos y restringir la manipulación cuando exista riesgo de contaminación.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 11",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-09",
+      "categoria": "BPM · Personal manipulador",
+      "pregunta_al_productor": "¿Los manipuladores aplican higiene personal, lavado de manos, ropa de trabajo y prácticas higiénicas; los visitantes reciben dotación e instrucciones?",
+      "evidencia_requerida": "Observación del personal y reglas de acceso para visitantes.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Capacitar, dotar y aplicar prácticas higiénicas en todas las áreas de manipulación.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 14",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-10",
+      "categoria": "BPM · Capacitación",
+      "pregunta_al_productor": "¿Existe plan continuo de capacitación para manipuladores, con al menos 10 horas al año, temas, duración, metodología, responsables y registros?",
+      "evidencia_requerida": "Plan escrito, cronograma, contenidos, asistencia y evaluación de efectividad.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Elaborar y ejecutar un plan anual acorde con el proceso panelero.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Arts. 12 y 13",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-11",
+      "categoria": "BPM · Materias primas",
+      "pregunta_al_productor": "¿La caña e insumos se reciben protegidos, se identifican, inspeccionan antes del uso y tienen fichas técnicas disponibles cuando corresponda?",
+      "evidencia_requerida": "Registros de recepción, identificación, inspección y fichas de insumos.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Identificar e inspeccionar materias primas e insumos, y solicitar sus fichas técnicas.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 16, num. 1–4",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-12",
+      "categoria": "BPM · Materias primas",
+      "pregunta_al_productor": "¿Las materias primas e insumos están almacenados y separados del producto terminado de forma que se evite contaminación cruzada?",
+      "evidencia_requerida": "Áreas y estibas separadas para recepción, insumos y producto terminado.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Separar almacenamiento y proceso; solicitar valoración sanitaria si el espacio es reducido.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 16, num. 5–8",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-13",
+      "categoria": "BPM · Envases",
+      "pregunta_al_productor": "¿Los envases y embalajes son aptos para alimentos, protegen de contaminación, no se reutilizan para otros fines y se guardan limpios en un lugar exclusivo?",
+      "evidencia_requerida": "Declaración o ficha del material, estado de envases y zona de almacenamiento.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Usar materiales aptos, protegerlos y separar los envases de otros usos.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 17",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-14",
+      "categoria": "BPM · Proceso",
+      "pregunta_al_productor": "¿El proceso se ejecuta en condiciones sanitarias y con controles registrados para evitar contaminación, cuerpos extraños y cruces entre etapas?",
+      "evidencia_requerida": "Procedimientos del proceso, controles físicos y registros aplicables.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Definir controles preventivos y proteger producto y materias primas durante el proceso.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Arts. 18, 20, 21 y 22",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-15",
+      "categoria": "BPM · Proceso",
+      "pregunta_al_productor": "¿El establecimiento evita contaminación cruzada entre caña, producto en proceso y panela terminada, y limpia los equipos entre operaciones incompatibles?",
+      "evidencia_requerida": "Flujos, cambios de dotación, lavado de manos y rutina de limpieza entre etapas.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Separar flujos y aplicar limpieza, desinfección y cambios de dotación cuando se requieran.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 20",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-16",
+      "categoria": "BPM · Lotes y envasado",
+      "pregunta_al_productor": "¿Cada unidad o embalaje tiene lote identificable, y se conserva registro fechado de elaboración por lote y trazabilidad hacia materias primas y distribución?",
+      "evidencia_requerida": "Rotulado visible del lote y registros de producción y salida.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Asignar lotes legibles y mantener registros durante el plazo establecido.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 19, num. 2–4",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-17",
+      "categoria": "BPM · Calidad e inocuidad",
+      "pregunta_al_productor": "¿Hay un sistema preventivo de control de calidad e inocuidad que cubra materias primas, proceso y producto terminado?",
+      "evidencia_requerida": "Procedimientos de control, especificaciones, verificaciones y registros.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Documentar los controles preventivos y rechazar producto que pueda representar riesgo.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Arts. 21–23",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-18",
+      "categoria": "BPM · Personal técnico",
+      "pregunta_al_productor": "¿El trapiche dispone de apoyo de personal técnico idóneo para producción y control de calidad y para orientar la capacitación?",
+      "evidencia_requerida": "Soporte técnico, perfil o evidencia de idoneidad.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Gestionar apoyo técnico idóneo acorde con la clasificación de riesgo bajo de la panela.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013; Resolución 719 de 2015",
+          "articulo": "Art. 24; Res. 719/2015, anexo, grupo 7, categoría 11, subcategoría 11.3.2",
+          "url": "https://normograma.invima.gov.co/compilacion/docs/resolucion_minsaludps_0719_2015.htm"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-19",
+      "categoria": "BPM · Instrumentos",
+      "pregunta_al_productor": "¿Los instrumentos usados para controlar variables relacionadas con inocuidad se verifican y calibran con un programa documentado?",
+      "evidencia_requerida": "Programa y registros de verificación o calibración.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Definir periodicidad, responsable y registros para los equipos de medición.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 25",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-20",
+      "categoria": "BPM · Saneamiento",
+      "pregunta_al_productor": "¿Existe plan escrito de saneamiento con responsables, procedimientos, cronogramas, listas de chequeo y registros de limpieza y desinfección?",
+      "evidencia_requerida": "Plan escrito y registros de ejecución con agentes, concentraciones y tiempos de contacto.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Completar y ejecutar el programa de limpieza y desinfección.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 26, num. 1",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-21",
+      "categoria": "BPM · Saneamiento",
+      "pregunta_al_productor": "¿El programa de plagas es preventivo, documentado y evita contaminación de caña, proceso y producto?",
+      "evidencia_requerida": "Programa, inspecciones, registros y medidas preventivas.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Implementar control integral de plagas priorizando prevención.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 26, num. 3",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-22",
+      "categoria": "BPM · Agua",
+      "pregunta_al_productor": "¿El establecimiento documenta la fuente y tratamiento del agua, tanque y redes, limpieza, desinfección y controles de calidad?",
+      "evidencia_requerida": "Registros de fuente, tratamiento, tanque, red, análisis y limpieza.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Documentar y controlar abastecimiento, tanque y redes con los registros requeridos.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Arts. 6, num. 3, y 26, num. 4",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-23",
+      "categoria": "BPM · Almacenamiento",
+      "pregunta_al_productor": "¿La panela, los insumos y los materiales se almacenan identificados, protegidos, rotados y separados del piso y las paredes; los químicos están aislados?",
+      "evidencia_requerida": "Orden del almacén, estibas, registros de lote y área de químicos.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Aplicar rotación, identificación, separación y almacenamiento seguro.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Art. 28, num. 1, 3–7",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-24",
+      "categoria": "BPM · Transporte y distribución",
+      "pregunta_al_productor": "¿El vehículo y los recipientes de transporte están limpios, protegen la panela, evitan contaminación cruzada y no llevan sustancias peligrosas junto con el alimento?",
+      "evidencia_requerida": "Inspección del vehículo, recipientes y protección de la carga.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Limpiar el vehículo, aislar producto de contaminantes y asegurar recipientes adecuados.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013",
+          "articulo": "Arts. 29 y 30",
+          "url": "https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%202674%20de%202013.pdf"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {}
+    },
+    {
+      "id": "BPM-25",
+      "categoria": "BPM · Venta",
+      "pregunta_al_productor": "Si el establecimiento expende directamente, ¿protege y conserva la panela y evita vender producto alterado, contaminado, adulterado, fraudulento o vencido?",
+      "evidencia_requerida": "Condiciones de exhibición y almacenamiento, información y revisión del producto.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Retirar producto deteriorado y asegurar conservación y rotulado aplicable.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2674 de 2013; Ley 2005 de 2019",
+          "articulo": "Art. 31; Ley 2005/2019, art. 8, par. 1",
+          "url": "https://normograma.invima.gov.co/compilacion/docs/ley_2005_2019.htm"
+        }
+      ],
+      "caracter": "obligatorio",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {
+        "expende_directamente": true
+      }
+    },
+    {
+      "id": "AMB-01",
+      "categoria": "Ambiental · Agua",
+      "pregunta_al_productor": "¿Si capta agua de una fuente superficial o subterránea para el proceso, cuenta con concesión y respeta las condiciones de uso otorgadas?",
+      "evidencia_requerida": "Concesión, fuente, caudal y condiciones del acto administrativo, cuando corresponda.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Consulte a la autoridad ambiental regional si la captación requiere concesión.",
+      "fuentes": [
+        {
+          "norma": "Decreto 1076 de 2015 (texto integrado con modificaciones; corte consultado 02/11/2025)",
+          "articulo": "Libro 2, Parte 2, Título 3, Capítulo 2; arts. 2.2.3.2.5.1 y siguientes",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153"
+        }
+      ],
+      "caracter": "obligatorio_en_parte",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {
+        "capta_agua_fuente": true
+      },
+      "modulo": "ambiental"
+    },
+    {
+      "id": "AMB-02",
+      "categoria": "Ambiental · Aguas residuales",
+      "pregunta_al_productor": "¿Si descarga aguas residuales no domésticas a aguas superficiales o al suelo, tiene permiso, caracterización y cumple los límites que le corresponden?",
+      "evidencia_requerida": "Permiso, caracterización del vertimiento y resultados comparados con el límite asignado por autoridad.",
+      "criticidad": "mayor",
+      "accion_correctiva": "No descargar sin verificar autorización, categoría de vertimiento y condiciones de la autoridad ambiental.",
+      "fuentes": [
+        {
+          "norma": "Decreto 1076 de 2015 (texto integrado con modificaciones; corte consultado 02/11/2025); Resolución 631 de 2015",
+          "articulo": "Libro 2, Parte 2, Título 3, Capítulo 3; Res. 631/2015, arts. 9–16 según actividad y receptor",
+          "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-631-de-2015/"
+        }
+      ],
+      "caracter": "obligatorio_en_parte",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {
+        "vierte_aguas_residuales": true
+      },
+      "modulo": "ambiental"
+    },
+    {
+      "id": "AMB-03",
+      "categoria": "Ambiental · Hornilla y emisiones",
+      "pregunta_al_productor": "¿Si usa equipo de combustión externa con biomasa, controla humedad del combustible, temperatura de gases y poder calorífico; y verifica el estándar aplicable a su equipo?",
+      "evidencia_requerida": "Registros de combustible y variables de chimenea; caracterización de emisiones si la exige la autoridad.",
+      "criticidad": "mayor",
+      "accion_correctiva": "Identifique con la autoridad ambiental la clasificación del equipo y aplique sus valores y controles.",
+      "fuentes": [
+        {
+          "norma": "Resolución 909 de 2008; Decreto 1076 de 2015",
+          "articulo": "Res. 909/2008, arts. 3, 18–21; D. 1076/2015, Libro 2, Parte 2, Título 5",
+          "url": "https://www.minambiente.gov.co/documento-entidad/resolucion-909-del-2008/"
+        }
+      ],
+      "caracter": "obligatorio_en_parte",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {
+        "usa_biomasa": true
+      },
+      "modulo": "ambiental"
+    },
+    {
+      "id": "AMB-04",
+      "categoria": "Ambiental · Residuos",
+      "pregunta_al_productor": "¿Separa los residuos en la fuente y dispone orgánicos aprovechables, reciclables y no aprovechables en recipientes identificados y según el servicio municipal?",
+      "evidencia_requerida": "Recipientes y manejo de residuos en el establecimiento.",
+      "criticidad": "menor",
+      "accion_correctiva": "Separar residuos con el código verde, blanco y negro y coordinar la disposición con el servicio local.",
+      "fuentes": [
+        {
+          "norma": "Resolución 2184 de 2019; Decreto 1076 de 2015",
+          "articulo": "Art. 4 (código de colores); D. 1076/2015 cuando se generen residuos peligrosos",
+          "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-2184-de-2019/"
+        }
+      ],
+      "caracter": "obligatorio_en_parte",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {},
+      "modulo": "ambiental"
+    },
+    {
+      "id": "AMB-05",
+      "categoria": "Ambiental · Combustible forestal",
+      "pregunta_al_productor": "¿Si usa leña, puede demostrar su origen legal y que el aprovechamiento forestal cuenta con autorización cuando esta se requiere?",
+      "evidencia_requerida": "Factura, procedencia o autorización de aprovechamiento forestal, según el origen.",
+      "criticidad": "mayor",
+      "accion_correctiva": "No extraer productos del bosque natural sin consultar los permisos aplicables con la autoridad ambiental.",
+      "fuentes": [
+        {
+          "norma": "Decreto 1076 de 2015 (texto integrado con modificaciones; corte consultado 02/11/2025)",
+          "articulo": "Libro 2, Parte 2, Título 2, Capítulo 1, aprovechamiento forestal",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153"
+        }
+      ],
+      "caracter": "obligatorio_en_parte",
+      "origen_del_requisito": "norma",
+      "condicion_de_aplicabilidad": null,
+      "aplica_si": {
+        "usa_lenia": true
+      },
+      "modulo": "ambiental"
+    }
+  ]
+}

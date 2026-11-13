@@ -1,0 +1,14 @@
+node_modules/
+.npm-cache/
+dist/
+.env
+data/*.sqlite
+data/*.sqlite-*
+data/.panelapp-signing-private.pem
+*.tsbuildinfo
+
+# Archivos locales con credenciales / artefactos de trabajo
+promt.txt
+sesiontranscript.txt
+work/
+outputs/
