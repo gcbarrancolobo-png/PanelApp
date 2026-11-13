@@ -9,6 +9,12 @@ PanelApp se despliega como **un solo servicio Node.js** que sirve:
 La base de datos vive en **Turso (libSQL en la nube)**, así que el host no
 necesita disco persistente.
 
+## 0. URL de producción
+
+- App y API: https://panelapp.onrender.com
+- Health: https://panelapp.onrender.com/api/health
+
+
 ## 1. Requisitos
 
 - Node.js ≥ 22.5 (probado con Node 24).
